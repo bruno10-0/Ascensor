@@ -204,7 +204,7 @@ public class Ascensor extends javax.swing.JFrame {
             clicBotonGuardar();
             aviso.setText("Aterrizaste en el piso "+pocision+".");
         } catch (Exception e) {
-            aviso.setText("Error: Algo salió mal al guardar.");
+            aviso.setText("Error: Algo salió mal al guardar.Intentelo de nuevo.");
         }
         
     }//GEN-LAST:event_guardarActionPerformed
@@ -254,12 +254,12 @@ public class Ascensor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "ERROR: Piso no detectado.");
             aviso.setText("Ingrese un piso y haga clic en Guardar.");
         } else if (indice < this.pocision && pocision>0) {
-            JOptionPane.showMessageDialog(null, "Baja de piso.");
+            JOptionPane.showMessageDialog(null, "Bajaste "+(pocision-indice)+" pisos.");
         } else if (indice == this.pocision) {
-            JOptionPane.showMessageDialog(null, "Ya está en en piso "+ indice+".");
-            aviso.setText("Ya está en el piso "+ indice+".");
+            JOptionPane.showMessageDialog(null, "Ya estás en el piso "+ indice+".");
+            aviso.setText("Ya estás en el piso "+ indice+".");
         } else {
-            JOptionPane.showMessageDialog(null, "Sube de piso.");
+            JOptionPane.showMessageDialog(null, "subiste "+(indice-pocision)+" pisos.");
         }
     }
 
