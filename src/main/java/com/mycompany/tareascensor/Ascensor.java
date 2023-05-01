@@ -200,7 +200,13 @@ public class Ascensor extends javax.swing.JFrame {
         proceso(indice);
     }
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-        clicBotonGuardar();
+        try {
+            clicBotonGuardar();
+            aviso.setText("Aterrizaste en el piso "+pocision+".");
+        } catch (Exception e) {
+            aviso.setText("Error: Algo salió mal al guardar.");
+        }
+        
     }//GEN-LAST:event_guardarActionPerformed
     private void clicBotonGuardar(){
          if (Integer.parseInt(piso.getText()) < 1 || Integer.parseInt(piso.getText()) > 4) {
