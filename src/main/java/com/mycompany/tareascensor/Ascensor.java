@@ -166,25 +166,44 @@ public class Ascensor extends javax.swing.JFrame {
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
         int indice = 3;
         proceso(indice);
+        if(pocision!=0){
+            Actualizar(indice);
+        }
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
         int indice = 2;
         proceso(indice);
+                if(pocision!=0){
+            Actualizar(indice);
+        }
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         int indice = 1;
         proceso(indice);
+                if(pocision!=0){
+            Actualizar(indice);
+        }
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
         int indice = 4;
         proceso(indice);
+                if(pocision!=0){
+            Actualizar(indice);
+        }
     }//GEN-LAST:event_btn4ActionPerformed
-
+    private void Actualizar(int indice){
+        piso.setText(Integer.toString(indice));
+        clicBotonGuardar();
+        proceso(indice);
+    }
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-        if (Integer.parseInt(piso.getText()) < 1 || Integer.parseInt(piso.getText()) > 4) {
+        clicBotonGuardar();
+    }//GEN-LAST:event_guardarActionPerformed
+    private void clicBotonGuardar(){
+         if (Integer.parseInt(piso.getText()) < 1 || Integer.parseInt(piso.getText()) > 4) {
             JOptionPane.showMessageDialog(null, "ERROR: Piso no valido.");
             aviso.setText("ERROR: Piso fuera de rango.");
             
@@ -206,9 +225,7 @@ public class Ascensor extends javax.swing.JFrame {
                     Icono(btn4);
             }
         }
-
-    }//GEN-LAST:event_guardarActionPerformed
-
+    }
     private void pisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pisoActionPerformed
 
     }//GEN-LAST:event_pisoActionPerformed
@@ -232,13 +249,11 @@ public class Ascensor extends javax.swing.JFrame {
             aviso.setText("Ingrese un piso y haga clic en Guardar.");
         } else if (indice < this.pocision && pocision>0) {
             JOptionPane.showMessageDialog(null, "Baja de piso.");
-            aviso.setText("Baja de piso.");
         } else if (indice == this.pocision) {
-            JOptionPane.showMessageDialog(null, "Ya está en ese piso.");
-            aviso.setText("Ya está en ese piso.");
+            JOptionPane.showMessageDialog(null, "Ya está en en piso "+ indice+".");
+            aviso.setText("Ya está en el piso "+ indice+".");
         } else {
             JOptionPane.showMessageDialog(null, "Sube de piso.");
-            aviso.setText("Sube de piso.");
         }
     }
 
